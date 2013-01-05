@@ -1,0 +1,2 @@
+module WebTabsHelper
+end
