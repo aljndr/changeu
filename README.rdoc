@@ -1,0 +1,20 @@
+== ChangeU
+
+ChangeU es un pequeño proyecto para poner en práctica mis conocimientos adquiridos en rails.
+
+El objetivo de ChangeU es el facilitar la creación de intercambios de regalos.
+
+Cada usuario tendra la posibibilidad de crear una lista de regalos y uno o mas intercambios.
+
+== Lista de regalos
+
+La lista de regalos sera un simple WishList con el producto, el precio, la imagen y la dirección física o electrónica donde encontrarlo.
+
+== Intercambios
+
+Los usuarios podran crear,editar o borrar intercambios. Para crear un intercambio se necesitarán asignar un coste tope y la fecha cuando se llevará dicho intercambio. El usuario que creó el intercambio fungirá como administrador de este, por lo que podrá borrarlo o editarlo.
+
+Asi mismo el usuario administrador tendra la posibilidad de invitar al intercambio a todos los usuarios que desee, una vez cerrada la lista ChangeU hará el sorteo automaticamnete y le asignará a cada usuario otro usuario a obsequiar.
+
+
+El proyecto es libre de ser clonado y o usado, solo pido una cosa a cambio, cualquier tipo de sugerencia o comentario, y si este sirve como base o idea para un proyecto más grande me encataría poder ser inivtado.
