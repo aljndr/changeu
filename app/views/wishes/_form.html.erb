@@ -1,0 +1,32 @@
+  <% if @wish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wish.errors.count, "error") %> prohibited this wish from being saved:</h2>
+
+      <ul>
+      <% @wish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :regalo %><br />
+    <%= f.text_field :regalo %>
+  </div>
+  <div class="field">
+    <%= f.label :costo %><br />
+    <%= f.text_field :costo %>
+  </div>
+  <div class="field">
+    <%= f.label :donde %><br />
+    <%= f.text_field :donde %>
+  </div>
+  <p>
+    <% if @wish.image.exists? %>
+      <%= image_tag @wish.image.url %><br/>
+    <% end %>
+    <%= f.label :image, "Foto de tu deseo" %>
+    <%= f.file_field :image %>
+  </p>
+ 

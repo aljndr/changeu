@@ -1,0 +1,9 @@
+%h1 Nuevo deseo
+
+= form_for(@wish,url:user_wishes_path,method: :post) do |f| 
+	= render 'form', f: f 
+	%div.actions
+		= f.submit "Desear", class:"btn btn-inverse btn-large"
+		= link_to "Cancelar", user_path(params[:user_id]) , class:"btn btn-inverse btn-large"  
+ 
+

@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%h1.well.well-small #{@user.nombre} #{@user.apellido} 
+%h2 
+	Intercambios 
+	%ul{class:"nav nav-pills"}
+		%li.active=link_to "Crear Intercambio", "#"
+%p Por el momento no cuentas con intercambios
+%h2
+	Lista de Regalos 
+	%ul{class:"nav nav-pills"}
+		%li.active=link_to "Agregar Deseo", new_user_wish_path(@user)
+- if @user.wishes.empty?
+	%p Tu lista de regalos está vacia 
+- else
+	%ul
+		%il= render partial: 'wish', collection: @user.wishes

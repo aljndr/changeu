@@ -11,6 +11,12 @@ body {
   }
 }
 
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+  color: white;
+  background-color: #FF3366;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -48,4 +54,18 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+.btn-inverse , {
+  color:#FF3366;
+  font-weight:bold;
+}
+
+.btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled], .btn-inverse:visited, {
+  color: #FF3366;
+}
+
+.edel, .edel:hover, .edel:visited{
+  color:#FF3366;
+  background-color:#fff;
 }
