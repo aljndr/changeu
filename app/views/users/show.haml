@@ -4,8 +4,14 @@
 %h2 
 	Intercambios 
 	%ul{class:"nav nav-pills"}
-		%li.active=link_to "Crear Intercambio", "#"
-%p Por el momento no cuentas con intercambios
+		%li.active=link_to "Crear Intercambio", new_user_exchange_path(@user)
+- if @user.exchanges.empty?
+	%p Por el momento no cuentas con intercambios
+- else
+	%ul
+		%il
+			%table
+				= render partial: 'exchange', collection: @user.exchanges
 %h2
 	Lista de Regalos 
 	%ul{class:"nav nav-pills"}
@@ -14,4 +20,6 @@
 	%p Tu lista de regalos está vacia 
 - else
 	%ul
-		%il= render partial: 'wish', collection: @user.wishes
+		%il
+			%table
+				= render partial: 'wish', collection: @user.wishes

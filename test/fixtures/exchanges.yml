@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  titulo: MyString
+  costo_min: 9.99
+  costo_max: 9.99
+  fecha: 2013-01-08
+
+two:
+  titulo: MyString
+  costo_min: 9.99
+  costo_max: 9.99
+  fecha: 2013-01-08

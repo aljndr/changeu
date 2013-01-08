@@ -1,0 +1,9 @@
+%tr
+	%td= exchange.titulo
+	%td= "\t"
+	%td
+		= link_to 'Ver Participantes', "#",class:"edel"
+		|
+		= link_to 'Modificar Intercambio', edit_user_exchange_path(@user.id,exchange.id),class:"edel"
+		|
+		= link_to 'Borrar Intercambio', user_exchange_path(@user.id,exchange.id), method: :delete, data: { confirm: '¿Deseas cancelar el Intercambio?' }, class:"edel" 

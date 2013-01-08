@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107031226) do
+ActiveRecord::Schema.define(:version => 20130108070511) do
+
+  create_table "exchanges", :force => true do |t|
+    t.string   "titulo"
+    t.decimal  "costo_min",  :precision => 8, :scale => 2
+    t.decimal  "costo_max",  :precision => 8, :scale => 2
+    t.date     "fecha"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  create_table "user_exchanges", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "exchange_id"
+    t.boolean  "admon"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "usuario"

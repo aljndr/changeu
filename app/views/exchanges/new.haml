@@ -1,0 +1,4 @@
+%h1 Nuevo Intercambio
+
+= form_for(@exchange,url: user_exchanges_path, method: :post) do |f| 
+	= render 'form',f: f

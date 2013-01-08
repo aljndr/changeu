@@ -13,5 +13,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :apellido, :nombre, :password, :usuario
-  has_many :wishes 
+  has_many :wishes
+  has_many :user_exchanges,dependent: :destroy
+  has_many :exchanges, through: :user_exchanges
 end

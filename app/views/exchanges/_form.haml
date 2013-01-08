@@ -1,0 +1,20 @@
+.field
+  = f.label :titulo, "Título del Intercambio"
+  = f.text_field :titulo
+
+.field_date
+  = f.label :fecha, "Fecha del Intercambio"
+  = f.date_select :fecha, order: [:day, :month, :year]
+
+.field
+  = f.label :costo_max, "Costo Máximo"
+  = f.text_field :costo_max
+
+.field
+  = f.label :costo_min, "Costo Mínimo"
+  = f.text_field :costo_min
+
+.actions
+  = f.submit "Guardar", class:"btn btn-inverse btn-large"
+  = link_to "Cancelar", user_path(params[:user_id]) , class:"btn btn-inverse btn-large"  
+

@@ -1,4 +1,7 @@
-= wish.regalo
-= link_to 'Ver deseo', edit_user_wish_path(@user.id,wish.id),class:"edel"
-|
-= link_to 'Borrar deseo', user_wish_path(wish.user_id,wish), method: :delete, data: { confirm: '¿Deseas olvidar el deseo?' }, class:"edel" 
+%tr
+	%td= wish.regalo
+	%td= "\t"
+	%td
+		= link_to 'Ver deseo', edit_user_wish_path(@user.id,wish.id),class:"edel"
+		|
+		= link_to 'Borrar deseo', user_wish_path(wish.user_id,wish), method: :delete, data: { confirm: '¿Deseas olvidar el deseo?' }, class:"edel" 
