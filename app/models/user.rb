@@ -16,4 +16,5 @@ class User < ActiveRecord::Base
   has_many :wishes
   has_many :user_exchanges,dependent: :destroy
   has_many :exchanges, through: :user_exchanges
+  has_many :exchanging, through: :user_exchanges 
 end
