@@ -12,8 +12,19 @@
 #
 
 class UserExchange < ActiveRecord::Base
-  attr_accessible :admon, :exchange_id, :user_id
+  attr_accessible :admon, :exchange_id, :user_id,:status
   belongs_to :user, class_name: :User
   belongs_to :exchange
   belongs_to :exchanging, class_name: :User
+
+  def status= int
+  	toint ={Admon:1,Pendiente:2,Aceptado:3} 
+  	int = toint[int] if int.class == Symbol
+  	super int
+  end
+
+  def status?
+  	st = ["","Admon","Pendiente","Aceptado"]
+  	return st[status]
+  end
 end

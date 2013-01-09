@@ -16,7 +16,7 @@
 #
 
 class Wish < ActiveRecord::Base
-  attr_accessible :costo, :donde, :regalo
+  attr_accessible :costo, :donde, :regalo, :image
   belongs_to :users
   has_attached_file :image
 end

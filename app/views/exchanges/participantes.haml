@@ -1,0 +1,14 @@
+=form_for :invitado , url: exchange_invitar_path do |f|
+	%h1 
+		Nombre de Usuario
+		=f.text_field :usuario
+		=f.submit "Invitar", class:"btn btn-large btn-inverse"
+		= link_to "Cancelar", user_path(session[:user]) , class:"btn btn-inverse btn-large"  
+
+
+%filedset
+	%legend
+		%h3 Participantes
+	%table
+		=render partial:'exchanging', collection:@exchanging 
+

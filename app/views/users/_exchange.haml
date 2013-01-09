@@ -2,7 +2,7 @@
 	%td= exchange.titulo
 	%td= "\t"
 	%td
-		= link_to 'Ver Participantes', "#",class:"edel"
+		= link_to 'Ver Participantes', exchange_participantes_path(exchange.id),class:"edel"
 		|
 		= link_to 'Modificar Intercambio', edit_user_exchange_path(@user.id,exchange.id),class:"edel"
 		|

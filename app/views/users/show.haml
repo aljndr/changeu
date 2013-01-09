@@ -6,10 +6,8 @@
 - if @user.exchanges.empty?
 	%p Por el momento no cuentas con intercambios
 - else
-	%ul
-		%il
-			%table
-				= render partial: 'exchange', collection: @user.exchanges
+	%table
+		= render partial: 'exchange', collection: @user.exchanges
 %h2
 	Lista de Regalos 
 	%ul{class:"nav nav-pills"}
@@ -17,7 +15,5 @@
 - if @user.wishes.empty?
 	%p Tu lista de regalos está vacia 
 - else
-	%ul
-		%il
-			%table
-				= render partial: 'wish', collection: @user.wishes
+	%table
+		= render partial: 'wish', collection: @user.wishes
