@@ -1,8 +1,17 @@
 %header{class:"navbar navbar-fixed-top navbar-inverse"}
-  %div{class:"navbar-inner"}
-    %div{class:"container"}
-      = link_to "ChangeU", root_path, id: "logo"
-      %nav
-        %ul{class:"nav pull-right"}
-          %li= link_to "Inscribirse", new_user_path
-          %li= link_to "Entrar", "#"
+	%div{class:"navbar-inner"}
+		%div{class:"container"}
+			- if session[:user].nil?
+				= link_to "ChangeU", root_path, id: "logo"
+			- else 
+				= link_to "ChangeU", user_path(session[:user]), id: "logo"
+			%nav
+				%ul{class:"nav pull-right"}
+					- if session[:user].nil?
+						%li= link_to "Inscribirse", new_user_path
+						%li= link_to "Entrar", login_path
+					- else
+						%li.active
+							%a= "Bienvenido \t" + User.find(session[:user]).usuario
+						%li= link_to "Salir", logout_path
+       

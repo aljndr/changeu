@@ -9,7 +9,7 @@ class ExchangesController < ApplicationController
 		respond_to do |format|
 	      if @exchange.save
 	      	UserExchange.create user_id: user_id,exchange_id: @exchange.id
-	        format.html { redirect_to user_path(user_id), notice: 'Intercambio generado' }
+	        format.html { redirect_to user_path(user_id); flash[:"alert alert-success"]= 'Intercambio generado' }
         	format.json { render json: @exchange, status: :created, location: @exchange }
 	      else
 	        format.html { render action: "new" }
@@ -27,7 +27,7 @@ class ExchangesController < ApplicationController
 
 	    respond_to do |format|
 	      if @exchange.update_attributes(params[:exchange])
-	        format.html { redirect_to user_path(params[:user_id]), notice: 'Exchange was successfully updated.' }
+	        format.html { redirect_to user_path(params[:user_id]); flash[:"alert alert-success"]= "Intercambio Actualizado" }
 	        format.json { head :no_content }
 	      else
 	        format.html { render action: "edit" }

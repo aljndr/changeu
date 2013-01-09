@@ -35,7 +35,7 @@ class WishesController < ApplicationController
     @wish.user_id = params[:user_id]
     respond_to do |format|
       if @wish.save
-        format.html { redirect_to user_path(@wish.user_id), notice: 'Wish was successfully created.' }
+        format.html { redirect_to user_path(@wish.user_id); flash[:"alert alert-success"]= "Deseo realizado" }
         format.json { render json: @wish, status: :created, location: @wish }
       else
         format.html { render action: "new" }
@@ -50,7 +50,7 @@ class WishesController < ApplicationController
 
     respond_to do |format|
       if @wish.update_attributes(params[:wish])
-        format.html { redirect_to user_path(@wish.user_id), notice: 'Wish was successfully updated.' }
+        format.html { redirect_to user_path(@wish.user_id); flash[:"alert alert-success"]= "Deseo Actualizado" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
