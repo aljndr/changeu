@@ -8,7 +8,9 @@
 
 %filedset
 	%legend
-		%h3 Participantes
+		%h3 
+			Participantes
+			.pull-right= icon_link_to "Iniciar Sorteo","#","random"
 	%table
 		=render partial:'exchanging', collection:@exchanging 
 

@@ -61,9 +61,23 @@ class ExchangesController < ApplicationController
 	 		flash[:"alert alert-success"]= "Ha sido invitado " + @invitado.usuario 	
 	 	end
 		redirect_to exchange_participantes_path  @exchange.id
-		
+  	end
 
+  	def aceptar
+  		ue = UserExchange.find_by_user_id_and_exchange_id session[:user],params[:exchange_id]
+  		ue.status = 3
+  		if ue.save
+  			flash[:"alert alert-success"]= "Invitacion Aceptada"
+  		else
+  			flash[:"alert alert-error"]= "La Invitacion no pudo ser Aceptada intentelo de nuevo"
+  		end
+  		redirect_to user_path(session[:user])  		
+  	end
 
+  	def rechazar
+  		ue = UserExchange.find_by_user_id_and_exchange_id session[:user],params[:exchange_id]
+  		ue.destroy
+  		redirect_to user_path(session[:user])  
   	end
 
 end

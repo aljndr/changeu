@@ -1,9 +1,27 @@
-%tr
-	%td= exchange.titulo
-	%td= "\t"
-	%td
-		= link_to 'Ver Participantes', exchange_participantes_path(exchange.id),class:"edel"
-		|
-		= link_to 'Modificar Intercambio', edit_user_exchange_path(@user.id,exchange.id),class:"edel"
-		|
-		= link_to 'Borrar Intercambio', user_exchange_path(@user.id,exchange.id), method: :delete, data: { confirm: '¿Deseas cancelar el Intercambio?' }, class:"edel" 
+- if exchange.user_exchanges.find_by_user_id(@user.id).status == 1
+	%tr
+		%td= exchange.titulo
+		%td= "\t"
+		%td
+			= link_to 'Ver Participantes', exchange_participantes_path(exchange.id),class:"edel"
+			|
+			= link_to 'Modificar Intercambio', edit_user_exchange_path(@user.id,exchange.id),class:"edel"
+			|
+			= link_to 'Borrar Intercambio', user_exchange_path(@user.id,exchange.id), method: :delete, data: { confirm: '¿Deseas cancelar el Intercambio?' }, class:"edel" 
+			- unless exchange.user_exchanges.find_by_user_id(@user.id).exchanging.nil?
+				| Te toca regalar a 
+				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,"#",class:"edel" 
+
+- elsif exchange.user_exchanges.find_by_user_id(@user.id).status == 3
+	%tr
+		%td= exchange.titulo
+		%td= "\t"
+		%td
+			Te toca regalar a 
+			- unless exchange.user_exchanges.find_by_user_id(@user.id).exchanging.nil?
+				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,"#",class:"edel" 
+			- else
+				???
+
+
+			

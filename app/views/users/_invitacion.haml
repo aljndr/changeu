@@ -1,0 +1,9 @@
+%fieldset
+	%legend{style:"border-bottom:none;"}
+		%h4
+			=invitacion.titulo
+		%small="Fecha: " + invitacion.fecha.to_s
+		%small="Costo de  " + number_to_currency(invitacion.costo_min) + " a " + number_to_currency(invitacion.costo_max)
+		.pull-right=icon_link_to "Rechazar",exchange_rechazar_path(invitacion.id),"remove",confirm:"¿Seguro deseas rechazar la invitacion?"
+		.pull-right=icon_link_to "Aceptar",exchange_aceptar_path(invitacion.id),"ok"
+%br

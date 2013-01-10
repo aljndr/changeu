@@ -10,6 +10,8 @@ Changeu::Application.routes.draw do
   resources :exchanges do
   	match '/participantes', to: 'exchanges#participantes'
   	match '/invitar', to: 'exchanges#invitar'
+    match '/aceptar', to: 'exchanges#aceptar'
+    match '/rechazar', to: 'exchanges#rechazar'
   end
 
   match '/login', to: 'web_tabs#login'

@@ -17,4 +17,23 @@ class User < ActiveRecord::Base
   has_many :user_exchanges,dependent: :destroy
   has_many :exchanges, through: :user_exchanges
   has_many :exchanging, through: :user_exchanges 
+
+  def active_exchanges?
+  	self.user_exchanges.where(status: 3).any?
+  end
+
+  def admon_exchanges?
+  	self.user_exchanges.where(status: 1).any?
+  end
+
+  def pendient_exchanges?
+  	self.user_exchanges.where(status: 2).any?
+  end
+
+  def invitaciones
+  	invs = []
+  	self.user_exchanges.where(status: 2).each{|ue| invs << ue.exchange }
+  	invs
+  end
+
 end

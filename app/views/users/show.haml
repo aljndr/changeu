@@ -1,19 +1,36 @@
 %h1.well.well-small #{@user.nombre} #{@user.apellido} 
-%h2 
-	Intercambios 
-	%ul{class:"nav nav-pills"}
-		%li.active=link_to "Crear Intercambio", new_user_exchange_path(@user)
-- if @user.exchanges.empty?
-	%p Por el momento no cuentas con intercambios
-- else
-	%table
-		= render partial: 'exchange', collection: @user.exchanges
-%h2
-	Lista de Regalos 
-	%ul{class:"nav nav-pills"}
-		%li.active=link_to "Agregar Deseo", new_user_wish_path(@user)
-- if @user.wishes.empty?
-	%p Tu lista de regalos está vacia 
-- else
-	%table
-		= render partial: 'wish', collection: @user.wishes
+%br
+%fieldset
+	%legend
+		%h2 
+			Intercambios 
+			.pull-right= icon_link_to "Crear Intercambio", new_user_exchange_path(@user),"retweet"
+	- unless @user.admon_exchanges? or @user.active_exchanges?
+		%p Por el momento no cuentas con intercambios
+	- else
+		%table
+			= render partial: 'exchange', collection: @user.exchanges
+
+%br
+%fieldset
+	%legend
+		%h2
+			Lista de Regalos 
+			.pull-right= icon_link_to "Agregar deseo",new_user_wish_path(@user),"gift"
+
+	- if @user.wishes.empty?
+		%p Tu lista de regalos está vacia 
+	- else
+		%table
+			= render partial: 'wish', collection: @user.wishes
+%br
+%fieldset
+	%legend
+		%h2 Invitaciones
+	- unless @user.pendient_exchanges?
+		%p Por el momento no cuentas con invitaciones
+	- else
+		= render partial:'invitacion',collection:@user.invitaciones
+
+
+
