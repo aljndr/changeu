@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :exchanges, through: :user_exchanges
   has_many :exchanging, through: :user_exchanges 
 
+  validates :usuario, uniqueness:true
+
   def active_exchanges?
   	self.user_exchanges.where(status: 3).any?
   end

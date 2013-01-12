@@ -18,3 +18,8 @@ Asi mismo el usuario administrador tendra la posibilidad de invitar al intercamb
 
 
 El proyecto es libre de ser clonado y o usado, solo pido una cosa a cambio, cualquier tipo de sugerencia o comentario, y si este sirve como base o idea para un proyecto más grande me encataría poder ser inivtado.
+
+== Cosas por hacer
+
+Colocar validaciones y mejorar los anuncios de error
+Congruencia entre solicitudes aceptadas y participantes en el momneto del sorteo 
