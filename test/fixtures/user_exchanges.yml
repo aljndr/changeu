@@ -2,13 +2,13 @@
 #
 # Table name: user_exchanges
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  exchange_id :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  status      :integer
-#  to_user     :integer
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  exchange_id   :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  status        :integer
+#  exchanging_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

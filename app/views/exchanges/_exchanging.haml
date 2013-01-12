@@ -2,6 +2,8 @@
 	%td= exchanging.nombre + " " + exchanging.apellido + " "
 	%td= "\t"
 	%td
-		= link_to "Deseos", "#",class:"edel" 
-		|
-		=link_to "Borrar", "#",class:"edel"
+		= link_to "Deseos", wishlist_path(exchanging.id),class:"edel"
+		- if exchanging.user_exchanges.find_by_exchange_id(params[:exchange_id]).status == 2 
+			|
+			=link_to "Borrar", exchange_sacar_path(params[:exchange_id],exchanging.id),class:"edel" 
+

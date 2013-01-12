@@ -1,0 +1,10 @@
+.pull-left{style:"margin-right:15px;margin-top:2.5em;"}
+	.pull-left= image_tag wish.image, style:"width:12em;height:10em;"
+	.pull-left{style:"margin-left:5px;"}
+		%h2= wish.regalo
+		%p
+			Costo:
+			=  number_to_currency wish.costo
+		%p
+			Lo puedes conseguir en : 
+			%span.edel= wish.donde

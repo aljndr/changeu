@@ -10,7 +10,7 @@
 	%legend
 		%h3 
 			Participantes
-			.pull-right= icon_link_to "Iniciar Sorteo","#","random"
+			.pull-right= icon_link_to "Iniciar Sorteo",exchange_sortear_path,"random"
 	%table
 		=render partial:'exchanging', collection:@exchanging 
 

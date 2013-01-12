@@ -80,4 +80,40 @@ class ExchangesController < ApplicationController
   		redirect_to user_path(session[:user])  
   	end
 
+  	def sacar
+  		ue = UserExchange.find_by_user_id_and_exchange_id params[:exchanging],params[:exchange_id]
+  		ue.destroy
+  		redirect_to exchange_participantes_path(params[:exchange_id])
+  	end
+
+  	def sortear
+  		us = {}  
+  		rdy = []
+  		flg = true
+  		flash[:"alert alert-success"] = "sss "
+  		e = Exchange.find params[:exchange_id] 		
+  		
+  		while flg
+  			flg = false 
+  			us = {}  
+  			rdy = []
+	  		e.users.each {|u| 
+	  			us[u.id] = (e.users.pluck("users.id")-[u.id]-rdy).shuffle[0]
+	  			rdy << us[u.id]
+	  			flg=true if us[u.id].nil?
+	  		}
+
+	  	end
+
+	  	us.each{ |id,ex_id|
+	  		ue =  UserExchange.find_by_user_id_and_exchange_id id,params[:exchange_id]
+	  		ue.exchanging_id = ex_id
+	  		ue.save
+	  	}
+
+	  	flash[:"alert alert-success"] = "Sorteo finalizado"
+  		
+  		redirect_to exchange_participantes_path(params[:exchange_id])
+  	end
+
 end

@@ -24,7 +24,7 @@
   </div>
   <p>
     <% if @wish.image.exists? %>
-      <%= image_tag @wish.image.url %><br/>
+      <%= image_tag @wish.image.url,style:"width:12em;height:10em;" %><br/>
     <% end %>
     <%= f.label :image, "Foto de tu deseo" %>
     <%= f.file_field :image %>

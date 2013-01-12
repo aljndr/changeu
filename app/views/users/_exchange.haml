@@ -10,7 +10,7 @@
 			= link_to 'Borrar Intercambio', user_exchange_path(@user.id,exchange.id), method: :delete, data: { confirm: '¿Deseas cancelar el Intercambio?' }, class:"edel" 
 			- unless exchange.user_exchanges.find_by_user_id(@user.id).exchanging.nil?
 				| Te toca regalar a 
-				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,"#",class:"edel" 
+				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,wishlist_path(exchange.user_exchanges.find_by_user_id(@user.id).exchanging.id),class:"edel" 
 
 - elsif exchange.user_exchanges.find_by_user_id(@user.id).status == 3
 	%tr
@@ -19,7 +19,7 @@
 		%td
 			Te toca regalar a 
 			- unless exchange.user_exchanges.find_by_user_id(@user.id).exchanging.nil?
-				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,"#",class:"edel" 
+				= link_to exchange.user_exchanges.find_by_user_id(@user.id).exchanging.usuario ,wishlist_path(exchange.user_exchanges.find_by_user_id(@user.id).exchanging.id),class:"edel" 
 			- else
 				???
 
